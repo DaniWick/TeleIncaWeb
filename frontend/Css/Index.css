@@ -1,0 +1,385 @@
+:root{
+    --color-primario: #198754;
+    --color-blanco: white;
+}
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Navegacion */
+#nav{
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    position: sticky;
+}
+.navbar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    transition: top 0.3s;
+}
+  
+.navbar.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+.navbar-toggler-icon {
+    filter: invert(100%);
+    filter: brightness(10);
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color:#198754 !important;
+    color: white !important;
+  }
+
+#login > a > button {
+  --hover-color: var(--color-primario);
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 20px;
+  color: white;
+  padding: .5em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  gap: 0.6em;
+  transition: 0.2s ease;
+  align-items: center;
+  font-weight: bold;
+}
+
+#login > a > button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login > a > button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+#login > a > button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid white;
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+#login > a > button:hover {
+  background-color: var(--hover-color);
+}
+
+#login > a > button:hover .arrow {
+  background: white;
+}
+
+#login > a > button:hover .arrow:before {
+  right: 0;
+}
+#logo{
+    width: 150px;
+}
+
+/* Rutas */
+.cont-user{
+    max-width: 25em;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.buttons {
+    display: flex;
+    margin: auto;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .buttons button {
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    margin: 20px;
+    color: #198754;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+  }
+  
+  .buttons button:before, .buttons button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #44d8a4;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button:after {
+    left: 0;
+    bottom: 0;
+  }
+  
+  .buttons button span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  
+  .buttons button span:before, .buttons button span:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background-color: #44d8a4;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button span:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button span:after {
+    left: 0;
+    bottom: 0;
+  }
+  
+  .buttons button p {
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .buttons button p:before, .buttons button p:after {
+    position: absolute;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    z-index: 1;
+    left: 0;
+  }
+  
+  .buttons button p:before {
+    content: attr(data-title);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .buttons button p:after {
+    content: attr(data-text);
+    top: 150%;
+    color: #44d8a4;
+  }
+  
+  .buttons button:hover:before, .buttons button:hover:after {
+    width: 100%;
+  }
+  
+  .buttons button:hover span {
+    z-index: 1;
+  }
+  
+  .buttons button:hover span:before, .buttons button:hover span:after {
+    height: 100%;
+  }
+  
+  .buttons button:hover p:before {
+    top: -50%;
+    transform: rotate(5deg);
+  }
+  
+  .buttons button:hover p:after {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .buttons button.start {
+    background-color: #44d8a4;
+    box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .buttons button.start p:before {
+    top: -50%;
+    transform: rotate(5deg);
+  }
+  
+  .buttons button.start p:after {
+    color: white;
+    transition: all 0s ease;
+    content: attr(data-start);
+    top: 50%;
+    transform: translateY(-50%);
+    animation: start 0.3s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes start {
+    from {
+      top: -50%;
+    }
+  }
+  
+  .buttons button.start:hover:before, .buttons button.start:hover:after {
+    display: none;
+  }
+  
+  .buttons button.start:hover span {
+    display: none;
+  }
+  
+  .buttons button:active {
+    outline: none;
+    border: none;
+  }
+  
+  .buttons button:focus {
+    outline: 0;
+  }
+
+/* Promociones */
+.d-item{
+    max-height: 600px;
+}
+.d-img{
+    height: 100%;
+}
+#cont-promociones{
+    width: 95%;
+    margin: auto;
+    justify-content: space-around;
+}
+#cont-promociones > .card{
+    z-index: 1;
+    border-radius: 1em;
+    width: 14em;
+    background: var(--color-primario);
+    padding: 1.5em;
+    color: var(--color-blanco);
+}
+.card > button{
+    transition: ease .3s;
+}
+.card > button:hover{
+    transform: scale(102%);
+    transition: ease .3s;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.301);
+}
+
+/* Metodos de Pago */
+#pagos{
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+}
+#plataformas{
+    z-index: 10;
+    width: 100px;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+}
+#plataformas:hover{
+    transform: scale(110%);
+    transition: ease-in-out .3s;
+}
+
+/* Botones Emergentes */
+.btn-emergente{
+    max-width: 100%;
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 2%;
+    right: 2%;
+    justify-content: end;
+}
+
+.whatsapp-btn {
+    display: flex;
+    width: 12em;
+    height: auto;
+    background-color: #25D366;
+    border-radius: 1em;
+    padding: .3em;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: ease-in-out .3s;
+}
+.whatsapp-btn i {
+    color: white;
+    font-size: 24px;
+    margin: .5em;
+}
+.whatsapp-btn:hover {
+    transition: ease-in-out .3s;
+    background-color: #18b365;
+}
+
+.llamar-btn {
+    display: flex;
+    width: 12em;
+    height: auto;
+    background-color: #d3c125;
+    border-radius: 1em;
+    padding: .3em;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: ease-in-out .3s;
+}
+.llamar-btn i {
+    color: white;
+    font-size: 24px;
+    margin: .5em;
+}
+.llamar-btn:hover {
+    transition: ease-in-out .3s;
+    background-color: #d39625;
+}
